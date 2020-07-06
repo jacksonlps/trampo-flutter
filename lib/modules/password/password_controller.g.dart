@@ -24,11 +24,13 @@ mixin _$PasswordController on _PasswordControllerBase, Store {
     });
   }
 
-  final _$resetAsyncAction = AsyncAction('_PasswordControllerBase.reset');
+  final _$sendPasswordResetEmailAsyncAction =
+      AsyncAction('_PasswordControllerBase.sendPasswordResetEmail');
 
   @override
-  Future<dynamic> reset() {
-    return _$resetAsyncAction.run(() => super.reset());
+  Future<dynamic> sendPasswordResetEmail() {
+    return _$sendPasswordResetEmailAsyncAction
+        .run(() => super.sendPasswordResetEmail());
   }
 
   final _$_PasswordControllerBaseActionController =

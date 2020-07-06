@@ -1,5 +1,7 @@
+import 'package:trampo/shared/helpers/firebase_intercept.dart';
 import 'package:mobx/mobx.dart';
-import 'package:trampo/modules/signin/signin_repository.dart';
+
+import 'signin_repository.dart';
 part 'signin_controller.g.dart';
 
 class SigninController = _SigninControllerBase with _$SigninController;
@@ -25,6 +27,23 @@ abstract class _SigninControllerBase with Store {
 
   @action
   Future login() async {
-    await _repository.login(email: email, password: password);
+    return await FirebaseIntercept.intercept(() async {
+      return await _repository.signInWithEmailAndPassword(
+          email: email, password: password);
+    });
+  }
+
+  @action
+  Future logout() async {
+    return await FirebaseIntercept.intercept(() async {
+      return await _repository.signOut();
+    });
+  }
+
+  @action
+  Future<bool> getCurrentUser() async {
+    return await FirebaseIntercept.intercept(() async {
+      return await _repository.getCurrentUser() != null;
+    });
   }
 }

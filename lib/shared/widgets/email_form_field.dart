@@ -10,16 +10,14 @@ class EmailFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: TextFormField(
-        decoration: InputDecoration(
-          labelText: 'E-mail',
-          filled: true,
-          border: InputBorder.none,
-        ),
-        onSaved: onSaved,
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: 'E-mail',
+        filled: true,
+        border: InputBorder.none,
       ),
+      keyboardType: TextInputType.emailAddress,
+      onSaved: onSaved,
     );
   }
 }

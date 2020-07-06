@@ -1,5 +1,7 @@
-import 'package:mobx/mobx.dart';
 import 'package:trampo/modules/signup/signup_repository.dart';
+import 'package:trampo/shared/helpers/firebase_intercept.dart';
+import 'package:mobx/mobx.dart';
+
 part 'signup_controller.g.dart';
 
 class SignupController = _SignupControllerBase with _$SignupController;
@@ -24,7 +26,10 @@ abstract class _SignupControllerBase with Store {
   void setPassword(value) => password = value;
 
   @action
-  Future register() async {
-    await _repository.register(email: email, password: password);
+  Future createUser() async {
+    return await FirebaseIntercept.intercept(() async {
+      await _repository.createUserWithEmailAndPassword(
+          email: email, password: password);
+    });
   }
 }

@@ -39,11 +39,12 @@ mixin _$SignupController on _SignupControllerBase, Store {
     });
   }
 
-  final _$registerAsyncAction = AsyncAction('_SignupControllerBase.register');
+  final _$createUserAsyncAction =
+      AsyncAction('_SignupControllerBase.createUser');
 
   @override
-  Future<dynamic> register() {
-    return _$registerAsyncAction.run(() => super.register());
+  Future<dynamic> createUser() {
+    return _$createUserAsyncAction.run(() => super.createUser());
   }
 
   final _$_SignupControllerBaseActionController =

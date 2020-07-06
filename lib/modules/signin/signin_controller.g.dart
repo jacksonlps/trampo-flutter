@@ -46,6 +46,21 @@ mixin _$SigninController on _SigninControllerBase, Store {
     return _$loginAsyncAction.run(() => super.login());
   }
 
+  final _$logoutAsyncAction = AsyncAction('_SigninControllerBase.logout');
+
+  @override
+  Future<dynamic> logout() {
+    return _$logoutAsyncAction.run(() => super.logout());
+  }
+
+  final _$getCurrentUserAsyncAction =
+      AsyncAction('_SigninControllerBase.getCurrentUser');
+
+  @override
+  Future<bool> getCurrentUser() {
+    return _$getCurrentUserAsyncAction.run(() => super.getCurrentUser());
+  }
+
   final _$_SigninControllerBaseActionController =
       ActionController(name: '_SigninControllerBase');
 

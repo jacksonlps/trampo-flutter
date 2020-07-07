@@ -21,8 +21,8 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future<void> _initialize() async {
-    final connected = await _controller.getCurrentUser();
     await Future.delayed(Duration(seconds: 4));
+    final connected = await _controller.getCurrentUser();
 
     if (connected)
       NavigatorHelper.pushReplacement(context, HomePage());

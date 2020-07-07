@@ -14,7 +14,6 @@ final firebaseErrors = {
 class FirebaseIntercept {
   static Future intercept(Function request) async {
     try {
-      print('intercept function');
       return await request();
     } on PlatformException catch (e) {
       if (firebaseErrors.containsKey(e.code))

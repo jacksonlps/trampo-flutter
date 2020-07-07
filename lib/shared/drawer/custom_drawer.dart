@@ -1,4 +1,5 @@
 import 'package:trampo/modules/home/home_page.dart';
+import 'package:trampo/modules/jobs/job_page.dart';
 import 'package:trampo/modules/signin/signin_controller.dart';
 import 'package:trampo/modules/signin/signin_page.dart';
 import 'package:trampo/shared/dialogs/quit_dialog.dart';
@@ -49,7 +50,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
             icon: Icons.extension,
             text: 'Serviços',
             selected: widget.selected == 3,
-            onTap: () {},
+            onTap: () {
+              NavigatorHelper.pushReplacement(context, JobPage());
+            },
           ),
           DrawerItem(
             icon: Icons.group,
